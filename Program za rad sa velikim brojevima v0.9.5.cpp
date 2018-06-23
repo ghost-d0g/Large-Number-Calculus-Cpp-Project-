@@ -17,8 +17,8 @@ int poredjenje(int a[], int n_a, int b[], int n_b) // return: 0 - prvi je veci; 
 	int i, pom_a[DUZINA_NIZA], pom_b[DUZINA_NIZA];
 
 	for(i=0; i<DUZINA_NIZA; i++) pom_a[i] = pom_b[i] = 0;
-	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = *(a + DUZINA_NIZA - n_a + i);
-	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = *(b + DUZINA_NIZA - n_b + i);
+	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = a[DUZINA_NIZA - n_a + i];
+	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = b[DUZINA_NIZA - n_b + i];
 
 
 	for(i=0; i<DUZINA_NIZA; i++) // Ovde ne trazimo prvu cifru koja se poklapa, gledamo sve (malo bezveze ... donekle ....
@@ -39,8 +39,8 @@ void sabiranje(int *a, int n_a, int *b, int n_b, int *c, int n_c)
 	int i, prenos = 0, pom_a[DUZINA_NIZA], pom_b[DUZINA_NIZA], pom_c[DUZINA_NIZA];
 
 	for(i = 0; i < DUZINA_NIZA; i++) pom_a[i] = pom_b[i] = pom_c[i] = 0;
-	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = *(a + DUZINA_NIZA - n_a + i);
-	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = *(b + DUZINA_NIZA - n_b + i);
+	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = a[DUZINA_NIZA - n_a + i];
+	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = b[DUZINA_NIZA - n_b + i];
 
 	for(i = DUZINA_NIZA - 1; i >= DONJA_GRANICA; i--)
 	{
@@ -56,8 +56,8 @@ void oduzimanje(int *a, int n_a, int *b, int n_b, int *c, int n_c)
 	int i, komplement, prenos = 0, pom_a[DUZINA_NIZA], pom_b[DUZINA_NIZA], pom_c[DUZINA_NIZA];
 
 	for(i = 0; i<DUZINA_NIZA; i++) pom_a[i] = pom_b[i] = pom_c[i] = 0;
-	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = *(a + DUZINA_NIZA - n_a + i);
-	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = *(b + DUZINA_NIZA - n_b + i);
+	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = a[DUZINA_NIZA - n_a + i];
+	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = b[DUZINA_NIZA - n_b + i];
 
 	for(i = DUZINA_NIZA - 1; i >= DONJA_GRANICA; i--)
 	{
@@ -84,8 +84,8 @@ void mnozenje(int a[], int n_a, int b[], int n_b, int *c, int n_c)
 	    pomocni[DUZINA_NIZA];
 
 	for(i = 0; i<DUZINA_NIZA; i++) pom_a[i] = pom_b[i] = pom_c[i] = pomocni[i] = 0;
-	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = *(a + DUZINA_NIZA - n_a + i);
-	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = *(b + DUZINA_NIZA - n_b + i);
+	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = a[DUZINA_NIZA - n_a + i];
+	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = b[DUZINA_NIZA - n_b + i];
 
 	while(pom_b[pocetak_b] == 0) pocetak_b++;
 
@@ -112,8 +112,8 @@ int djm(int a[], int n_a, int b[], int n_b)
 	int i, pom_a[DUZINA_NIZA], pom_b[DUZINA_NIZA], kolicnik = 0;
 
 	for(i = 0; i<DUZINA_NIZA; i++) pom_a[i] = pom_b[i] = 0;
-	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = *(a + DUZINA_NIZA - n_a + i);
-	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = *(b + DUZINA_NIZA - n_b + i);
+	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = a[DUZINA_NIZA - n_a + i];
+	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = b[DUZINA_NIZA - n_b + i];
 
 	while(poredjenje(pom_a, DUZINA_NIZA, pom_b, DUZINA_NIZA) != 1)
 	{
@@ -130,7 +130,7 @@ void mnozenje_brzinsko(int *a, int n, int indeks, int *c)
 
 	for(i = DUZINA_NIZA - 1; i >= 0; --i)
 	{
-		proizvod = *(a + i) * n + prenos;
+		proizvod = a[i] * n + prenos;
 		*(c + i) = proizvod % 10;
 		prenos   = proizvod / 10;
 	}
@@ -149,8 +149,8 @@ void deljenje(int a[], int n_a, int b[], int n_b, int *k, int n_k, int *o, int n
 						 umnozak[DUZINA_NIZA], mnozilac[DUZINA_NIZA];
 
 	for(i = 0; i < DUZINA_NIZA; i++) pom_a[i] = pom_b[i] = pom_k[i] = radni[i] = umnozak[i] = mnozilac[i] = 0;
-	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = *(a + DUZINA_NIZA - n_a + i);
-	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = *(b + DUZINA_NIZA - n_b + i);
+	for(i = 0; i < n_a; i++) pom_a[DUZINA_NIZA - n_a + i] = a[DUZINA_NIZA - n_a + i];
+	for(i = 0; i < n_b; i++) pom_b[DUZINA_NIZA - n_b + i] = b[DUZINA_NIZA - n_b + i];
 
 	while(pom_a[brojac_a] == 0) brojac_a++;
 
@@ -179,8 +179,8 @@ void deljenje(int a[], int n_a, int b[], int n_b, int *k, int n_k, int *o, int n
 		oduzimanje(radni, DUZINA_NIZA, umnozak, DUZINA_NIZA, radni, DUZINA_NIZA);
 	}
 
-	for(i = 0; i < DUZINA_NIZA; i++) *(k + i) = pom_k[i];
-	for(i = 0; i < DUZINA_NIZA; i++) *(o + i) = radni[i];
+	for(i = 0; i < DUZINA_NIZA; i++) k[i] = pom_k[i];
+	for(i = 0; i < DUZINA_NIZA; i++) o[i] = radni[i];
 }
 
 int mnozenje_brzinsko(int *a, int n, int indeks)
@@ -189,15 +189,15 @@ int mnozenje_brzinsko(int *a, int n, int indeks)
 
 	for(i = 0; i < indeks; i++)
 	{
-		proizvod = *(a + i) * n + prenos;
-		*(a + i) = proizvod % 10;
+		proizvod = a[i] * n + prenos;
+		a[i]     = proizvod % 10;
 		prenos   = proizvod / 10;
 	}
 
 	while(prenos)
 	{
-		*(a + indeks) = prenos % 10;
-		prenos /= 10;
+		a[indeks] = prenos % 10;
+		prenos   /= 10;
 		indeks++;
 	}
 
@@ -284,7 +284,7 @@ void ucitavanje(string ime, string s1, int *a, int *n_a, string s2, int *b, int 
     *n_a = s1.length();
 
 	for(i = 0; i < *n_a; i++)
-    	*(a + DUZINA_NIZA - *n_a + i) = s1.at(i) - 48;
+    	a[DUZINA_NIZA - *n_a + i] = s1.at(i) - 48;
 
     printf("\nPrvi broj ucitan korektno.");
     printf("\nBroj cifara prvog broja: %d\n", *n_a);
@@ -292,7 +292,7 @@ void ucitavanje(string ime, string s1, int *a, int *n_a, string s2, int *b, int 
     *n_b = s2.length();
 
     for(i = 0; i < *n_b; i++)
-    	*(b + DUZINA_NIZA - *n_b + i) = s2.at(i) - 48;
+    	b[DUZINA_NIZA - *n_b + i] = s2.at(i) - 48;
 
     printf("\nDrugi broj ucitan korektno.");
     printf("\nBroj cifara drugog broja: %d\n\n\n", *n_b);
