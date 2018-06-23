@@ -17,17 +17,14 @@ int compare(int a[], int n_a, int b[], int n_b)
 	int i, tmp_a[ARRAY_LENGTH], tmp_b[ARRAY_LENGTH];
 
 	for(i = 0; i < ARRAY_LENGTH; i++)             tmp_a[i] = tmp_b[i] = 0;
-	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = *(a + ARRAY_LENGTH - n_a + i);
-	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = *(b + ARRAY_LENGTH - n_b + i);
+	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = a[ARRAY_LENGTH - n_a + i];
+	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = b[ARRAY_LENGTH - n_b + i];
 
 
 	for(i = 0; i < ARRAY_LENGTH; i++)
 	{
-		if(tmp_a[i] > tmp_b[i])
-			return 0;
-
-		if(tmp_b[i] > tmp_a[i])
-			return 1;
+		if(tmp_a[i] > tmp_b[i]) return 0;
+		if(tmp_b[i] > tmp_a[i]) return 1;
 	}
 
 	return 2;
@@ -37,9 +34,9 @@ void addition(int *a, int n_a, int *b, int n_b, int *c, int n_c)
 {
 	int i, transfer = 0, tmp_a[ARRAY_LENGTH], tmp_b[ARRAY_LENGTH], tmp_c[ARRAY_LENGTH];
 
-	for(i = 0; i < ARRAY_LENGTH; i++) tmp_a[i] = tmp_b[i] = tmp_c[i] = 0;
-	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = *(a + ARRAY_LENGTH - n_a + i);
-	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = *(b + ARRAY_LENGTH - n_b + i);
+	for(i = 0; i < ARRAY_LENGTH; i++)  tmp_a[i] = tmp_b[i] = tmp_c[i] = 0;
+	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = a[ARRAY_LENGTH - n_a + i];
+	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = b[ARRAY_LENGTH - n_b + i];
 
 	for(i = ARRAY_LENGTH - 1; i >= LOWER_LIMIT; i--)
 	{
@@ -54,9 +51,9 @@ void subtraction(int *a, int n_a, int *b, int n_b, int *c, int n_c)
 {
 	int i, complement, transfer = 0, tmp_a[ARRAY_LENGTH], tmp_b[ARRAY_LENGTH], tmp_c[ARRAY_LENGTH];
 
-	for(i = 0; i < ARRAY_LENGTH; i++) tmp_a[i] = tmp_b[i] = tmp_c[i] = 0;
-	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = *(a + ARRAY_LENGTH - n_a + i);
-	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = *(b + ARRAY_LENGTH - n_b + i);
+	for(i = 0; i < ARRAY_LENGTH; i++)  tmp_a[i] = tmp_b[i] = tmp_c[i] = 0;
+	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = a[ARRAY_LENGTH - n_a + i];
+	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = b[ARRAY_LENGTH - n_b + i];
 
 	for(i = ARRAY_LENGTH - 1; i >= LOWER_LIMIT; i--)
 	{
@@ -82,9 +79,9 @@ void multiplication(int a[], int n_a, int b[], int n_b, int *c, int n_c)
 	int i, counter_b, beginning_b = 0, tmp_a[ARRAY_LENGTH], tmp_b[ARRAY_LENGTH], tmp_c[ARRAY_LENGTH],
 	    temporary[ARRAY_LENGTH];
 
-	for(i = 0; i<ARRAY_LENGTH; i++) tmp_a[i] = tmp_b[i] = tmp_c[i] = temporary[i] = 0;
-	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = *(a + ARRAY_LENGTH - n_a + i);
-	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = *(b + ARRAY_LENGTH - n_b + i);
+	for(i = 0; i<ARRAY_LENGTH; i++)  tmp_a[i] = tmp_b[i] = tmp_c[i] = temporary[i] = 0;
+	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = a[ARRAY_LENGTH - n_a + i];
+	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = b[ARRAY_LENGTH - n_b + i];
 
 	while(tmp_b[beginning_b] == 0) beginning_b++;
 
@@ -110,9 +107,9 @@ int dos(int a[], int n_a, int b[], int n_b)
 {
 	int i, tmp_a[ARRAY_LENGTH], tmp_b[ARRAY_LENGTH], quotient = 0;
 
-	for(i = 0; i<ARRAY_LENGTH; i++) tmp_a[i] = tmp_b[i] = 0;
-	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = *(a + ARRAY_LENGTH - n_a + i);
-	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = *(b + ARRAY_LENGTH - n_b + i);
+	for(i = 0; i<ARRAY_LENGTH; i++)    tmp_a[i] = tmp_b[i] = 0;
+	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = a[ARRAY_LENGTH - n_a + i];
+	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = b[ARRAY_LENGTH - n_b + i];
 
 	while(compare(tmp_a, ARRAY_LENGTH, tmp_b, ARRAY_LENGTH) != 1)
 	{
@@ -129,7 +126,7 @@ void spped_mult(int *a, int n, int index, int *c)
 
 	for(i = ARRAY_LENGTH - 1; i >= 0; --i)
 	{
-		product = *(a + i) * n + transfer;
+		product = a[i] * n + transfer;
 		*(c + i) = product % 10;
 		transfer   = product / 10;
 	}
@@ -148,8 +145,8 @@ void division(int a[], int n_a, int b[], int n_b, int *k, int n_k, int *o, int n
 						 mult1[ARRAY_LENGTH], multiplier[ARRAY_LENGTH];
 
 	for(i = 0; i < ARRAY_LENGTH; i++) tmp_a[i] = tmp_b[i] = tmp_k[i] = working[i] = mult1[i] = multiplier[i] = 0;
-	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = *(a + ARRAY_LENGTH - n_a + i);
-	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = *(b + ARRAY_LENGTH - n_b + i);
+	for(i = 0; i < n_a; i++) tmp_a[ARRAY_LENGTH - n_a + i] = a[ARRAY_LENGTH - n_a + i];
+	for(i = 0; i < n_b; i++) tmp_b[ARRAY_LENGTH - n_b + i] = b[ARRAY_LENGTH - n_b + i];
 
 	while(tmp_a[counter_a] == 0) counter_a++;
 
@@ -178,8 +175,8 @@ void division(int a[], int n_a, int b[], int n_b, int *k, int n_k, int *o, int n
 		subtraction(working, ARRAY_LENGTH, mult1, ARRAY_LENGTH, working, ARRAY_LENGTH);
 	}
 
-	for(i = 0; i < ARRAY_LENGTH; i++) *(k + i) = tmp_k[i];
-	for(i = 0; i < ARRAY_LENGTH; i++) *(o + i) = working[i];
+	for(i = 0; i < ARRAY_LENGTH; i++) k[i] = tmp_k[i];
+	for(i = 0; i < ARRAY_LENGTH; i++) o[i] = working[i];
 }
 
 int spped_mult(int *a, int n, int index)
@@ -188,14 +185,14 @@ int spped_mult(int *a, int n, int index)
 
 	for(i = 0; i < index; i++)
 	{
-		product = *(a + i) * n + transfer;
-		*(a + i) = product % 10;
-		transfer   = product / 10;
+		product  = a[i] * n + transfer;
+		a[i]     = product % 10;
+		transfer = product / 10;
 	}
 
 	while(transfer)
 	{
-		*(a + index) = transfer % 10;
+		a[index] = transfer % 10;
 		transfer /= 10;
 		index++;
 	}
@@ -283,7 +280,7 @@ void load_arrays(string name, string s1, int *a, int *n_a, string s2, int *b, in
     *n_a = s1.length();
 
 	for(i = 0; i < *n_a; i++)
-    	*(a + ARRAY_LENGTH - *n_a + i) = s1.at(i) - 48;
+    	a[ARRAY_LENGTH - *n_a + i] = s1.at(i) - 48;
 
     printf("\nOperand 1 loaded successfully.");
     printf("\nNumber of digits in operand 1: %d\n", *n_a);
@@ -291,7 +288,7 @@ void load_arrays(string name, string s1, int *a, int *n_a, string s2, int *b, in
     *n_b = s2.length();
 
     for(i = 0; i < *n_b; i++)
-    	*(b + ARRAY_LENGTH - *n_b + i) = s2.at(i) - 48;
+    	b[ARRAY_LENGTH - *n_b + i] = s2.at(i) - 48;
 
     printf("\nOperand 2 loaded successfully.");
     printf("\nNumber of digits in operand 2: %d\n\n\n", *n_b);
@@ -408,7 +405,7 @@ int main()
 		case '2' : subtraction(broj1, numOfDigits1, broj2, numOfDigits2, rezultat, ARRAY_LENGTH); break;
 		case '3' : multiplication(broj1, numOfDigits1, broj2, numOfDigits2, rezultat, ARRAY_LENGTH); break;
 		case '4' : division(broj1, numOfDigits1, broj2, numOfDigits2, rezultat, ARRAY_LENGTH, rezultat2, ARRAY_LENGTH); break;
-		//case '5' : printf("\nEnter a value for factorial calulation: "); n = 10000; speed_factoriel(n); return 0;
+		//case '5' : printf("\nEnter a value for the factorial calulation: "); n = 10000; speed_factoriel(n); return 0;
 		case '5' : printf("\nEnter a value for factorial calulation: "); scanf("%d", &n); speed_factoriel(n); return 0;
 		default: printf("Wrong operation code!\n\nProgram has been terminated."); return 0;
 	}
